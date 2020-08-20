@@ -3,7 +3,7 @@ import subprocess
 import string
 import os.path
 
-def mov_argv_brute(target_file:str, charset: list = string.printable, exec: bool = False, sys_type: str = "linux"):
+def mov_argv_brute(target_file:str, charset: str = string.printable, exec: bool = False, sys_type: str = "linux"):
     # File check
     if not os.path.exists(target_file):
         print("Error: File Not Found")
