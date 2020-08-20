@@ -51,6 +51,7 @@ def mov_argv_brute(target_file:str, charset: list = string.printable, exec: bool
         flag += count_chr
         print(ins_count)
         print(flag)
+        
         # Optional Run Check if exec == true
         if exec:
             exec_process = subprocess.Popen(print_flag_command(),
