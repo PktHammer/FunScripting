@@ -31,7 +31,8 @@ def mov_argv_brute(target_file:str, charset: str = string.printable, exec: bool 
                 else:
                     i = '\'' + i + '\''
             else:
-                i = '\'' + i + '\''
+                print("Err: Unsupported OS")
+                return
             cmd_updated = update_command()
             target_process = subprocess.Popen(cmd_updated,
                                               stdout=subprocess.PIPE,
