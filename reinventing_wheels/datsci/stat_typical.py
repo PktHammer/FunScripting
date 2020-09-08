@@ -72,7 +72,7 @@ def split_arr_for_quartiles(mlist):
     if mlen == 1: # If 1
         return
     if mlen % 2: # If odd, remove the center
-        t_mlist = mlist
+        t_mlist = mlist[:]
         del t_mlist[mlen/2]
         mlen -= 1
         # Return the splice
