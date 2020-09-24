@@ -4,7 +4,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-def find_median(mlist, is_sorted=True):
+
+def find_median(mlist: list, is_sorted=True) -> float:
+    """
+    Finds median
+
+    :param mlist: list to be entered
+    :param is_sorted: will presort if set to false
+    :return: float median
+    """
     # If unsorted, sort
     if(is_sorted==False):
         return find_median(sorted(mlist))
@@ -19,13 +27,28 @@ def find_median(mlist, is_sorted=True):
     else:
         return (mlist[int(llength/2) - 1] + mlist[int(llength/2)]) / 2
 
-def find_mean(mlist):
+
+def find_mean(mlist: list)-> float:
+    """
+    Finds mean
+
+    :param mlist: list to be entered
+    :return: float mean
+    """
     mean = 0
     for num in mlist:
         mean += num
     return(mean / len(mlist))
 
-def find_range(mlist, is_sorted=True):
+
+def find_range(mlist: list, is_sorted=True) -> float:
+    """
+    Finds range
+
+    :param mlist: list to be entered
+    :param is_sorted: will presort if set to false
+    :return: float range
+    """
     # If not sorted, sort
     if(is_sorted==False):
         return find_range(sorted(mlist))
@@ -36,7 +59,14 @@ def find_range(mlist, is_sorted=True):
         return 0
     return(mlist[len(mlist) - 1] - mlist[0])
 
-def find_variance_defi_method(mlist, is_sorted=True):
+
+def find_variance_defi_method(mlist: list, is_sorted=True) -> float:
+    """
+    Finds variance with definition method
+    :param mlist: list to be entered
+    :param is_sorted: will presort if set to false
+    :return: float variance
+    """
     # If not sorted, sort
     if(is_sorted==False):
         return find_variance_defi_method(sorted(mlist))
@@ -50,7 +80,14 @@ def find_variance_defi_method(mlist, is_sorted=True):
     # Multiply summation by 1/(n-1) & return
     return summation / (len(mlist) - 1)
 
-def find_variance_shortcut_method(mlist, is_sorted=True):
+
+def find_variance_shortcut_method(mlist: list, is_sorted=True) -> float:
+    """
+    Finds variance with shortcut method
+    :param mlist: list to be entered
+    :param is_sorted: will presort if set to false
+    :return: float variance
+    """
     # If not sorted, sort
     if(is_sorted==False):
         return find_variance_shortcut_method(sorted(mlist))
@@ -67,7 +104,9 @@ def find_variance_shortcut_method(mlist, is_sorted=True):
     # Divide summation less difference by (n-1) & Return
     return (summation - difference) / (n-1)
 
-def split_arr_for_quartiles(mlist):
+
+def split_arr_for_quartiles(mlist: list):
+    """Parses the array into two"""
     mlen = len(mlist)
     if mlen == 1: # If 1
         return
@@ -80,7 +119,15 @@ def split_arr_for_quartiles(mlist):
     else: # Else if even, return splice
         return mlist[0:int(mlen/2)], mlist[int(mlen/2):mlen]
 
-def find_outliers(mlist, is_sorted=True):
+
+def find_outliers(mlist: list, is_sorted=True) -> list:
+    """
+    Returns outliers given list
+
+    :param mlist: list to be entered
+    :param is_sorted: will presort if set to false
+    :return: list of outliers
+    """
     if is_sorted == False:
         find_outliers(sorted(mlist))
     A1, A2 = split_arr_for_quartiles(mlist)
@@ -95,7 +142,15 @@ def find_outliers(mlist, is_sorted=True):
             outliers.append(item)
     return outliers
 
-def find_outliers_given_q1_q3(mlist, Q1, Q3):
+
+def find_outliers_given_q1_q3(mlist: list, Q1: float, Q3: float):
+    """
+    Returns outliers given list
+
+    :param mlist: list to be entered
+    :param is_sorted: will presort if set to false
+    :return: list of outliers
+    """
     IQR = Q3-Q1
     LF = Q1 - 1.5 * IQR
     UF = Q3 + 1.5 * IQR
