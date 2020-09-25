@@ -2,7 +2,7 @@ from math import comb
 
 
 def greater_than_n_wins(wins_req: int, total_chances: int, win_rate: float) -> float:
-    # Summation of number of equally likely chances multiplied by their probability of occurrence
+    """Summation of number of equally likely chances multiplied by their probability of occurrence"""
     overall_prob = 0
     loss_rate = 1 - win_rate
     for num in range(wins_req, total_chances+1, 1):
