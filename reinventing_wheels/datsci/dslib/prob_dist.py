@@ -14,7 +14,7 @@ def find_ex(x_l: list, px_l: list, show_work=False) -> float:
     ex = 0
     for c, x_val in enumerate(x_l):
         ex += x_val * px_l[c]
-        if(show_work):
+        if show_work:
             print("| " + str(x_val) + " * " + str(px_l[c]) + " = " + str(x_val * px_l[c]))
     return ex
 
